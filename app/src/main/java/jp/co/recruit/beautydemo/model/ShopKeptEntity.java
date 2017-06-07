@@ -5,4 +5,6 @@ package jp.co.recruit.beautydemo.model;
  */
 
 public class ShopKeptEntity {
+    public String imgUrl;
+    public String name;
 }

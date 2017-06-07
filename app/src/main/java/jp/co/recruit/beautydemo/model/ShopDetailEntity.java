@@ -5,4 +5,10 @@ package jp.co.recruit.beautydemo.model;
  */
 
 public class ShopDetailEntity {
+    public String imgUrl;
+    public String name;
+    public String introduction;
+    public String address;
+    public String access;
+    public boolean kept;
 }
