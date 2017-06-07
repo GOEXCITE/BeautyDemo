@@ -6,6 +6,7 @@
     android:layout_marginLeft="0dp"
     android:layout_width="match_parent"
     android:adjustViewBounds="true"
+    android:layout_weight="5"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -17,6 +18,7 @@
         android:layout_marginRight="30px"
         android:layout_marginTop="30px"
         android:layout_marginBottom="30px"
+        android:layout_weight="3"
         android:src="@drawable/aaa" />
 
     <TextView
@@ -36,8 +38,12 @@
         android:background="@color/pink"
         android:layout_width="80px"
         android:layout_height="80px"
+        android:layout_marginRight="0"
         android:layout_weight="1"
 
         android:text="✖" />
 
 </LinearLayout>
+
+//weight
+//layout

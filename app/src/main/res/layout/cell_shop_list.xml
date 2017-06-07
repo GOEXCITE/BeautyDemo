@@ -6,7 +6,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="50dp"
         android:orientation="vertical">
 
         <TextView
@@ -15,87 +15,84 @@
             android:textStyle="bold"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:paddingLeft="20px"
-            android:textSize="40px"
+            android:paddingLeft="20dp"
+            android:textSize="25sp"
             android:gravity="center_vertical"/>
 
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="350px"
+        android:layout_height="230dp"
         android:orientation="vertical">
 
         <FrameLayout
-            android:layout_width="320px"
+            android:layout_width="220dp"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:background="@color/blue" >
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_gravity="center_vertical"
-                android:layout_width="300px"
-                android:layout_height="300px"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:adjustViewBounds="true"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/aaa" />
 
         </FrameLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="320px"
-            android:orientation="vertical" >
+            android:layout_marginLeft="220dp"
+            android:background="@color/orange"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/addressLabel"
                 android:layout_width="fill_parent"
-                android:layout_marginTop="10px"
-                android:layout_height="50px"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
                 android:gravity="center_vertical"
-                android:textSize="28px"
-                android:textStyle="bold"
-                android:text="住所" />
+                android:text="住所"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/addressTextView"
                 android:layout_width="fill_parent"
-                android:layout_height="80px"
-                android:layout_marginTop="60px"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
-                android:textSize="28px"
-                android:textStyle="bold"
-                android:text="東京都立川市曙町２－１８－１７　町田ビル５F" />
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="東京都立川市曙町２－１８－１７　町田ビル５F"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/accessLabel"
                 android:layout_width="fill_parent"
-                android:layout_height="50px"
-                android:layout_marginTop="150px"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
-                android:textSize="28px"
-                android:textStyle="bold"
-                android:text="アクセス" />
+                android:text="アクセス"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/accessTextView"
                 android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:gravity="center_vertical"
-                android:layout_height="100px"
-                android:layout_marginTop="200px"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
-                android:textSize="28px"
-                android:textStyle="bold"
-                android:text="立川駅北口を出て直進しお隣にはドン・キホーテがあります。ビックカメラを超え、立川通りを渡り、さらに少し進むと左手に町田ビルがあ" />
+                android:text="立川駅北口を出て直進しお隣にはドン・キホーテがあります。ビックカメラを超え、立川通りを渡り、さらに少し進むと左手に町田ビルがあ"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-        </FrameLayout>
+        </LinearLayout>
     </FrameLayout>
 </LinearLayout>
