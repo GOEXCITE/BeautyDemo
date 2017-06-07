@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:gravity="top"
-    android:background="@color/blue"
     android:layout_width="match_parent"
     android:adjustViewBounds="true"
     android:weightSum="10"
@@ -19,7 +18,6 @@
 
     <TextView
         android:id="@+id/keepShopTitleTextView"
-        android:background="@color/purple"
         android:text="AXY 銀座店"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
@@ -31,7 +29,6 @@
 
     <Button
         android:id="@+id/keepCloseButton"
-        android:background="@color/pink"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_weight="1"

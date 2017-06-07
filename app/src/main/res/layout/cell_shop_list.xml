@@ -16,7 +16,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:paddingLeft="20dp"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:gravity="center_vertical"/>
 
     </FrameLayout>
@@ -28,8 +28,7 @@
 
         <FrameLayout
             android:layout_width="220dp"
-            android:layout_height="match_parent"
-            android:background="@color/blue" >
+            android:layout_height="match_parent" >
 
             <ImageView
                 android:id="@+id/imageView"
@@ -47,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="220dp"
-            android:background="@color/orange"
             android:orientation="vertical">
 
             <TextView
@@ -57,7 +55,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center_vertical"
                 android:text="住所"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -68,7 +66,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="東京都立川市曙町２－１８－１７　町田ビル５F"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -78,7 +76,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center_vertical"
                 android:text="アクセス"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -90,7 +88,7 @@
                 android:layout_marginRight="5dp"
                 android:gravity="center_vertical"
                 android:text="立川駅北口を出て直進しお隣にはドン・キホーテがあります。ビックカメラを超え、立川通りを渡り、さらに少し進むと左手に町田ビルがあ"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

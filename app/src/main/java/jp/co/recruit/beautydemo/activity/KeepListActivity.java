@@ -31,7 +31,7 @@ public class KeepListActivity extends Activity {
         listView.setAdapter(listAdapter);
     }
 
-    @OnClick(R.id.keepCloseButton)
+    @OnClick(R.id.keepBackButton)
     void back() {
         finish();
     }
