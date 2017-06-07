@@ -8,10 +8,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
-import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
-import jp.co.recruit.beautydemo.api.ShopListFetcher;
-import jp.co.recruit.beautydemo.db.ShopKeepHandler;
-import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
 
 /**
@@ -35,7 +31,7 @@ public class KeepListActivity extends Activity {
         listView.setAdapter(listAdapter);
     }
 
-    @OnClick(R.id.backButton)
+    @OnClick(R.id.keepCloseButton)
     void back() {
         finish();
     }
