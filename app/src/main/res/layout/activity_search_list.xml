@@ -9,16 +9,16 @@
         android:background="@color/green">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/keepTitleTextView"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:text="一覧"
             android:textColor="@color/white"
-            android:textSize="50px"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <ImageButton
@@ -43,10 +43,7 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp" />
+            android:layout_height="wrap_content" />
 
     </FrameLayout>
 
