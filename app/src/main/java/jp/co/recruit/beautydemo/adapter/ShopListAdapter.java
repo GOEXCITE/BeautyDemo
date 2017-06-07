@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import butterknife.ButterKnife;
 import jp.co.recruit.beautydemo.activity.R;
 import jp.co.recruit.beautydemo.model.ShopListEntity;
 
@@ -38,8 +37,6 @@ public class ShopListAdapter extends ArrayAdapter<ShopListEntity> {
             LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             cell = vi.inflate(ID, null);
         }
-
-        ButterKnife.bind(cell);
 
         ShopListEntity item = list.get(position);
         TextView shopTitleTextView = (TextView) cell.findViewById(R.id.shopTitleTextView);
