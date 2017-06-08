@@ -32,18 +32,28 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View cell = convertView ;
         if(cell == null){
             LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             cell = vi.inflate(ID, null);
         }
 
-        ShopKeptEntity item = list.get(position);
+        final ShopKeptEntity item = list.get(position);
         TextView shopTitleTextView = (TextView) cell.findViewById(R.id.keepShopTitleTextView);
         shopTitleTextView.setText(item.name);
 
-        Button closeButton = (Button) cell.findViewById(R.id.keepCloseButton);
+        final Button keepCloseButton = (Button) cell.findViewById(R.id.keepCloseButton);
+//        keepCloseButton.setTag(0, Integer.valueOf(position));
+//        keepCloseButton.setTag(1, list);
+//        keepCloseButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Integer position = (Integer) v.getTag(0);
+//                List<ShopKeptEntity> items = (List<ShopKeptEntity>) v.getTag(1);
+//                items.remove(position);
+//            }
+//        });
 
         return cell;
     }

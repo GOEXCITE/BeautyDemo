@@ -64,6 +64,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:gravity="top"
                 android:text="東京都立川市曙町２－１８－１７　町田ビル５F"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -84,9 +85,9 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:gravity="center_vertical"
+                android:gravity="top"
                 android:text="立川駅北口を出て直進しお隣にはドン・キホーテがあります。ビックカメラを超え、立川通りを渡り、さらに少し進むと左手に町田ビルがあ"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

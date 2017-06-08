@@ -21,6 +21,11 @@ public class ShopDetailActivity extends Activity {
         ButterKnife.bind(this);
     }
 
+    @OnClick(R.id.detailKeepButton)
+    void keepButtonPressed() {
+
+    }
+
     @OnClick(R.id.detailBackButton)
     void back() {
         finish();

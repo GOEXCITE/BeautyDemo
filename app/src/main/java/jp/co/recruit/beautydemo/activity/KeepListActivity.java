@@ -1,7 +1,10 @@
 package jp.co.recruit.beautydemo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import butterknife.BindView;
@@ -29,6 +32,14 @@ public class KeepListActivity extends Activity {
 
         KeepListAdapter listAdapter = new KeepListAdapter(this, R.layout.cell_keep_list, ShopKeepHandler.fetchKeptList());
         listView.setAdapter(listAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @OnClick(R.id.keepBackButton)
