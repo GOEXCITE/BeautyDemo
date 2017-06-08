@@ -9,7 +9,6 @@
         android:background="@color/green">
 
         <TextView
-            android:id="@+id/keepTitleTextView"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"

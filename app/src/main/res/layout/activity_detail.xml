@@ -1,66 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@color/green">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/detailBackButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/detailTitleTextView"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:text="タイトル"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/purple">
-
-        <ImageView
-            android:id="@+id/imageView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:adjustViewBounds="true"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="10px"
-            android:src="@drawable/aaa" />
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@color/green">
 
-        <TextView
-            android:id="@+id/textView"
+            <ImageButton
+                android:id="@+id/detailBackButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:text="タイトル"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="200px"
-            android:gravity="center_vertical"
-            android:text="詳細"
-            android:textColor="@color/white"
-            android:textSize="50px"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/purple">
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/detailImageView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/aaa" />
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/detailShopNameTextView"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="ekubo.　銀座【エクボ】"
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/detailKeepButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_heart" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detailShopIntroductionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="top"
+                android:padding="8dp"
+                android:text="女性の魅力を引きだすために最大限の技術と気持ちで応える【銀座】NO1サロン。何気ないちょっとした変化をカラーやパーマで女性らしい丸みシルエットで可愛く提案してくれる。１つ１つの薬剤も髪質やダメージに合わせ、ベースのツヤやハリから改善してくれるのも【銀座】ekubo..ならではのおもてなし♪ご予約03-6280-6978"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="100dp"
+                    android:gravity="top"
+                    android:text="住所"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/detailAddressTextView"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="top"
+                    android:text="東京都中央区銀座８-10-2ルアンビル4F"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="100dp"
+                    android:gravity="top"
+                    android:text="アクセス"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/detailAccessTextView"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="top"
+                    android:text="地下鉄　【銀座】駅銀座線日比谷線丸ノ内線【銀座】A3出口徒歩３分　中央通りを７丁目まで直進→三菱東京UFJを左折→サンクス二軒隣の【ルアンビル４F】になります。JR山手線　新橋駅　【銀座口】徒歩4分　銀座口を出て直進→銀座通り（第一京浜）を左折→銀座７丁目三菱東京UFJ銀行を右折→サンクス二軒隣の【ルアンビル４F】になります。 "
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
