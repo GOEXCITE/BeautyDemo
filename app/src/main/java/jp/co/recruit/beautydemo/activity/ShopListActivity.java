@@ -9,17 +9,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
 import butterknife.BindView;
@@ -74,10 +65,9 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
         }
         return false;
     }
-    
+
     @OnClick(R.id.keepButton)
     void showKeepActivity() {
-        System.out.print("show keep activity here!");
         Intent intent = new Intent(getApplication(), KeepListActivity.class);
         startActivity(intent);
     }

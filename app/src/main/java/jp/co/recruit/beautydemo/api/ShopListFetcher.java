@@ -2,20 +2,14 @@ package jp.co.recruit.beautydemo.api;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Xml;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,7 +34,7 @@ public class ShopListFetcher extends Thread {
     @Override
     public void run() {
         try {
-            // 大阪の天気予報XMLデータ
+            
             URL url = new URL(urlStr);
             final HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");

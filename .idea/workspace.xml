@@ -10,8 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2e2003c-9623-4e17-a084-39692d8c9fbf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_http.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/activity/ShopListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/activity/ShopListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java" afterPath="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java" />
     </list>
@@ -53,12 +51,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShopListFetcher.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShopListFetcher.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="240">
+              <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,15 +73,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShopListActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShopListActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/activity/ShopListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+            <state relative-caret-position="15">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1394#1698#0" expanded="true" />
-                <element signature="e#1697#1698#0" expanded="true" />
+                <element signature="e#1148#1452#0" expanded="true" />
+                <element signature="e#1451#1452#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1915,8 +1915,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cell_shop_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_http.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/activity/ShopListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java" />
       </list>
     </option>
   </component>
@@ -2560,19 +2560,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java</url>
-          <line>88</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java</url>
-          <line>80</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java</url>
-          <line>81</line>
+          <line>75</line>
           <properties />
           <option name="timeStamp" value="91" />
         </line-breakpoint>
@@ -2923,22 +2923,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/activity/ShopListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1148#1452#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/activity/ShopListActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jp/co/recruit/beautydemo/api/ShopListFetcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+        <state relative-caret-position="240">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1394#1698#0" expanded="true" />
-            <element signature="e#1697#1698#0" expanded="true" />
           </folding>
         </state>
       </provider>
