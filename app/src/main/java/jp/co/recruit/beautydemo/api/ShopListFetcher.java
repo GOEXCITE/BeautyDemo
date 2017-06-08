@@ -1,5 +1,14 @@
 package jp.co.recruit.beautydemo.api;
 
+import android.os.Handler;
+import android.os.Message;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +18,44 @@ import jp.co.recruit.beautydemo.model.ShopListEntity;
  * Created by 01011776 on 2017/06/07.
  */
 
-public class ShopListFetcher {
+public class ShopListFetcher extends Thread {
 
-    static public List<ShopListEntity> fetchShopList() {
+    public static final int WHAT_ID = 1;
+
+    private Handler handler;
+
+    public ShopListFetcher(Handler handler) {
+        this.handler = handler;
+    }
+
+    @Override
+    public void run() {
+        try {
+            // 大阪の天気予報XMLデータ
+            URL url = new URL("http://www.drk7.jp/weather/xml/27.xml");
+            final HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+
+            int bbb = con.getResponseCode();
+            String aaa = con.getResponseMessage();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"));
+            StringBuilder builder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null ) {
+                builder.append(line);
+            }
+
+            final String content = builder.toString();
+
+            Message msg = Message.obtain(handler,WHAT_ID, content);
+            handler.sendMessage(msg);
+
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    static private List<ShopListEntity> fetchShopList() {
         List<ShopListEntity> result = new ArrayList<ShopListEntity>();
 
         ShopListEntity one = new ShopListEntity();
@@ -39,5 +83,16 @@ public class ShopListFetcher {
         result.add(three);
 
         return result;
+    }
+
+    static private String InputStreamToString(InputStream is) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
+        }
+        br.close();
+        return sb.toString();
     }
 }
