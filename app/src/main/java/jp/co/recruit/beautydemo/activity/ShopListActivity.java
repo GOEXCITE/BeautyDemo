@@ -20,12 +20,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
 import jp.co.recruit.beautydemo.api.ShopListFetcher;
+import jp.co.recruit.beautydemo.model.ShopListEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
@@ -36,11 +38,7 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
     @BindView(R.id.listView)
     ListView listView;
 
-    @BindView(R.id.httpTextView)
-    TextView textView;
-
     private Handler handler;
-
     {
         handler = new Handler(this);
     }
@@ -48,21 +46,17 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_http);
+        setContentView(R.layout.activity_search_list);
 
-        textView = (TextView) findViewById(R.id.httpTextView);
-//        ButterKnife.bind(this);
-//
-//        ShopListAdapter listAdapter = new ShopListAdapter(this, ShopListFetcher.fetchShopList());
-//        listView.setAdapter(listAdapter);
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        ButterKnife.bind(this);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
+                startActivity(intent);
+            }
+        });
 
         ShopListFetcher fetcher = new ShopListFetcher(handler);
         fetcher.start();
@@ -70,15 +64,17 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
 
     @Override
     public boolean handleMessage(Message msg) {
-        if (msg.what == ShopListFetcher.WHAT_ID) {
-            String content = (String) msg.obj;
-            textView.setText(content);
+        if (msg.what == ShopListFetcher.WHAT_ID_SUCCESS) {
+            List< ShopListEntity> content = (List< ShopListEntity>) msg.obj;
+            ShopListAdapter listAdapter = new ShopListAdapter(this, content);
+            listView.setAdapter(listAdapter);
             return true;
+        } else if (msg.what == ShopListFetcher.WHAT_ID_FILED) {
+
         }
         return false;
     }
-
-
+    
     @OnClick(R.id.keepButton)
     void showKeepActivity() {
         System.out.print("show keep activity here!");
