@@ -30,6 +30,8 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
     ListView listView;
 
     private Handler handler;
+    private List<ShopListEntity> list;
+
     {
         handler = new Handler(this);
     }
@@ -56,8 +58,8 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
     @Override
     public boolean handleMessage(Message msg) {
         if (msg.what == ShopListFetcher.WHAT_ID_SUCCESS) {
-            List< ShopListEntity> content = (List< ShopListEntity>) msg.obj;
-            ShopListAdapter listAdapter = new ShopListAdapter(this, content);
+            list = (List< ShopListEntity>) msg.obj;
+            ShopListAdapter listAdapter = new ShopListAdapter(this, list);
             listView.setAdapter(listAdapter);
             return true;
         } else if (msg.what == ShopListFetcher.WHAT_ID_FILED) {
