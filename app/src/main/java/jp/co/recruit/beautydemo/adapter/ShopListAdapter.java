@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;

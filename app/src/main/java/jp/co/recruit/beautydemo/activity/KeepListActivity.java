@@ -15,7 +15,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
-import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 
 /**

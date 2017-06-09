@@ -40,7 +40,8 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // CREATE TABLE shop (id TEXT PRIMARY KEY, name TEXT, imgUrl TEXT)
-        String command = "CREATE TABLE " + KEEP_TABLE + " (" + KEEP_TABLE_KEY_ID + " TEXT PRIMARY KEY, " + KEEP_TABLE_KEY_NAME + " TEXT, " + KEEP_TABLE_KEY_IMGURL + " TEXT)";
+        String command = "CREATE TABLE " + KEEP_TABLE
+                + " (" + KEEP_TABLE_KEY_ID + " TEXT PRIMARY KEY, " + KEEP_TABLE_KEY_NAME + " TEXT, " + KEEP_TABLE_KEY_IMGURL + " TEXT)";
         db.execSQL(command);
     }
 
@@ -48,20 +49,6 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int old_v, int new_v) {
         db.execSQL("DROP TABLE IF EXISTS shop");
     }
-
-//    static public List<ShopKeptEntity> fetchKeptList() {
-//        List<ShopKeptEntity> result = new ArrayList<ShopKeptEntity>();
-//
-//        ShopKeptEntity one = new ShopKeptEntity();
-//        one.name = "アミスバイエアー(amis by air)";
-//        result.add(one);
-//
-//        ShopKeptEntity two = new ShopKeptEntity();
-//        two.name = "レスピア(Respia)";
-//        result.add(two);
-//
-//        return result;
-//    }
 
     public boolean keep(ShopDetailEntity shop) {
         SQLiteDatabase db = this.getWritableDatabase();
