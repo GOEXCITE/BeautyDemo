@@ -30,11 +30,7 @@ public class ShopListAdapter extends ArrayAdapter<ShopListEntity> {
     private Context context;
     static private int ID = R.layout.cell_shop_list;
 
-    private Handler handler;
-
-    {
-        handler = new Handler();
-    }
+    private Handler handler = new Handler();
 
     public ShopListAdapter(@NonNull Context context, @NonNull List<ShopListEntity> objects) {
         super(context, ID, objects);

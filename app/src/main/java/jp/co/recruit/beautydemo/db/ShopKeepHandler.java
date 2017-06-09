@@ -5,14 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 import jp.co.recruit.beautydemo.model.ShopKeptEntity;
-import jp.co.recruit.beautydemo.model.ShopListEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
