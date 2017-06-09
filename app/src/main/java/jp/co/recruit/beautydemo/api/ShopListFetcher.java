@@ -61,6 +61,7 @@ public class ShopListFetcher extends Thread {
                     addItem.name = item.getString("name");
                     addItem.address = item.getString("address");
                     addItem.access = item.getString("mobile_access");
+                    addItem.id = item.getString("id");
 
                     JSONObject photos = item.getJSONObject("photo");
                     JSONObject mobilePhotos = photos.getJSONObject("mobile");

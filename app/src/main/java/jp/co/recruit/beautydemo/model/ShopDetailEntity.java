@@ -6,6 +6,7 @@ package jp.co.recruit.beautydemo.model;
 
 public class ShopDetailEntity {
     public String imgUrl;
+    public String id;
     public String name;
     public String introduction;
     public String address;

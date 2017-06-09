@@ -29,12 +29,7 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
     @BindView(R.id.listView)
     ListView listView;
 
-    private Handler handler;
     private List<ShopListEntity> list;
-
-    {
-        handler = new Handler(this);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +42,13 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
+                String id = list.get(i).id;
+                intent.putExtra(ShopDetailActivity.EXTRA_DETAIL_SHOP_ID,id);
                 startActivity(intent);
             }
         });
 
-        ShopListFetcher fetcher = new ShopListFetcher(handler);
+        ShopListFetcher fetcher = new ShopListFetcher(new Handler(this));
         fetcher.start();
     }
 
