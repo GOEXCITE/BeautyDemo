@@ -1,12 +1,19 @@
 package jp.co.recruit.beautydemo.activity;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -19,6 +26,7 @@ import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
 import jp.co.recruit.beautydemo.api.ImageLoader;
 import jp.co.recruit.beautydemo.api.ShopDetailFetcher;
 import jp.co.recruit.beautydemo.api.ShopListFetcher;
+import jp.co.recruit.beautydemo.db.ShopKeepHandler;
 import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 import jp.co.recruit.beautydemo.model.ShopListEntity;
 
@@ -45,14 +53,22 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     @BindView(R.id.detailAccessTextView)
     TextView detailAccessTextView;
 
+    @BindView(R.id.detailKeepButton)
+    ImageButton keepButton;
+
+    private ShopKeepHandler keepHandler;
+    private ShopDetailEntity shop;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
         ButterKnife.bind(this);
+        keepHandler = new ShopKeepHandler(this);
 
         String shopId = getIntent().getStringExtra(EXTRA_DETAIL_SHOP_ID);
+        keepButton.setVisibility(View.INVISIBLE);
         ShopDetailFetcher fetcher = new ShopDetailFetcher(new Handler(this), shopId);
         fetcher.start();
     }
@@ -60,13 +76,16 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     @Override
     public boolean handleMessage(Message msg) {
         if (msg.what == ShopDetailFetcher.WHAT_ID_SUCCESS) {
-            ShopDetailEntity detail = (ShopDetailEntity) msg.obj;
-            detailShopNameTextView.setText(detail.name);
-            detailShopIntroductionTextView.setText(detail.introduction);
-            detailAddressTextView.setText(detail.address);
-            detailAccessTextView.setText(detail.access);
-            if (detail.imgUrl != null) {
-                ImageLoader loader = new ImageLoader(new Handler(this), detail.imgUrl);
+            shop = (ShopDetailEntity) msg.obj;
+            detailShopNameTextView.setText(shop.name);
+            detailShopIntroductionTextView.setText(shop.introduction);
+            detailAddressTextView.setText(shop.address);
+            detailAccessTextView.setText(shop.access);
+            shop.kept = keepHandler.isKept(shop.id);
+            keepButton.setVisibility(View.VISIBLE);
+
+            if (shop.imgUrl != null) {
+                ImageLoader loader = new ImageLoader(new Handler(this), shop.imgUrl);
                 loader.start();
             }
 
@@ -79,13 +98,18 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
         } else if (msg.what == ImageLoader.WHAT_ID_IMAGE_LOADED_FILED) {
 
         }
-
         return false;
     }
 
     @OnClick(R.id.detailKeepButton)
     void keepButtonPressed() {
-
+        if (shop.kept && keepHandler.unkeep(shop.id)) {
+            shop.kept = false;
+            Toast.makeText(this, "unkept shop", Toast.LENGTH_SHORT).show();
+        } else if (!shop.kept && keepHandler.keep(shop)){
+            shop.kept = true;
+            Toast.makeText(this, "kept shop", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.detailBackButton)

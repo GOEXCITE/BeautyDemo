@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
+import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
@@ -30,7 +34,9 @@ public class KeepListActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        KeepListAdapter listAdapter = new KeepListAdapter(this, R.layout.cell_keep_list, ShopKeepHandler.fetchKeptList());
+        ShopKeepHandler handler = new ShopKeepHandler(this);
+        List<ShopKeptEntity> keptShops = handler.keptShops();
+        KeepListAdapter listAdapter = new KeepListAdapter(this, R.layout.cell_keep_list, keptShops == null ? new ArrayList<ShopKeptEntity>() : keptShops);
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
