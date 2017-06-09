@@ -2,6 +2,7 @@ package jp.co.recruit.beautydemo.activity;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -22,6 +23,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
 import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
 import jp.co.recruit.beautydemo.api.ImageLoader;
 import jp.co.recruit.beautydemo.api.ShopDetailFetcher;
@@ -114,6 +116,8 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
 
     @OnClick(R.id.detailBackButton)
     void back() {
+        Intent intent = new Intent();
+        setResult(KeepListActivity.KEEP_LIST_ACTIVITY_BACK);
         finish();
     }
 
