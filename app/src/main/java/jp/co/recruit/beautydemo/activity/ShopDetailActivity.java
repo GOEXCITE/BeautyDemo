@@ -81,7 +81,7 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
             detailShopIntroductionTextView.setText(shop.introduction);
             detailAddressTextView.setText(shop.address);
             detailAccessTextView.setText(shop.access);
-            shop.kept = keepHandler.isKept(shop.id);
+            setShopKept(keepHandler.isKept(shop.id));
             keepButton.setVisibility(View.VISIBLE);
 
             if (shop.imgUrl != null) {
@@ -104,10 +104,10 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     @OnClick(R.id.detailKeepButton)
     void keepButtonPressed() {
         if (shop.kept && keepHandler.unkeep(shop.id)) {
-            shop.kept = false;
+            setShopKept(false);
             Toast.makeText(this, "unkept shop", Toast.LENGTH_SHORT).show();
         } else if (!shop.kept && keepHandler.keep(shop)){
-            shop.kept = true;
+            setShopKept(true);
             Toast.makeText(this, "kept shop", Toast.LENGTH_SHORT).show();
         }
     }
@@ -115,5 +115,14 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     @OnClick(R.id.detailBackButton)
     void back() {
         finish();
+    }
+
+    private void setShopKept(boolean kept) {
+        if (kept) {
+            keepButton.setImageResource(R.drawable.ic_heart_filled);
+        } else {
+            keepButton.setImageResource(R.drawable.ic_heart);
+        }
+        shop.kept = kept;
     }
 }
