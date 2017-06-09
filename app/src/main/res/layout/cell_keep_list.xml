@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="top"
     android:orientation="horizontal"
-    android:adjustViewBounds="true"
+    android:background="@color/orange"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/keepImageView"
@@ -16,12 +15,12 @@
     <TextView
         android:id="@+id/keepShopTitleTextView"
         android:text="AXY 銀座店"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/pink"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:gravity="center_vertical"
-         />
+        android:gravity="center_vertical" />
 
     <Button
         android:id="@+id/keepCloseButton"

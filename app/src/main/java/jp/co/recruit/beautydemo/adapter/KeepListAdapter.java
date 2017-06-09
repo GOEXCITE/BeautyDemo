@@ -33,16 +33,14 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
     private Context context;
     static private int ID = R.layout.cell_keep_list;
 
-    private Handler handler;
+    private Handler handler = new Handler();
     private ShopKeepHandler keepHandler;
-    {
-        handler = new Handler();
-    }
 
-    public KeepListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ShopKeptEntity> objects) {
-        super(context, resource, objects);
+    public KeepListAdapter(@NonNull Context context, @NonNull List<ShopKeptEntity> objects) {
+        super(context, ID, objects);
         this.list = objects;
         this.context = context;
+
         keepHandler = new ShopKeepHandler(context);
     }
 

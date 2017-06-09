@@ -48,7 +48,7 @@ public class KeepListActivity extends Activity {
 
         ShopKeepHandler handler = new ShopKeepHandler(this);
         setList(handler.keptShops());
-        KeepListAdapter listAdapter = new KeepListAdapter(this, R.layout.cell_keep_list, list);
+        KeepListAdapter listAdapter = new KeepListAdapter(this, list);
         listView.setAdapter(listAdapter);
     }
 
