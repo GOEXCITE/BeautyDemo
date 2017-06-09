@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import java.net.URL;
 import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.R;
+import jp.co.recruit.beautydemo.db.ShopKeepHandler;
 import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 
 /**
@@ -33,7 +35,7 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
     static private int ID = R.layout.cell_keep_list;
 
     private Handler handler;
-
+    private ShopKeepHandler keepHandler;
     {
         handler = new Handler();
     }
@@ -42,6 +44,7 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
         super(context, resource, objects);
         this.list = objects;
         this.context = context;
+        keepHandler = new ShopKeepHandler(context);
     }
 
     @Override
@@ -88,17 +91,16 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
         loadImageThread.start();
 
         final Button keepCloseButton = (Button) cell.findViewById(R.id.keepCloseButton);
-//        keepCloseButton.setTag(0, Integer.valueOf(position));
-//        keepCloseButton.setTag(1, list);
         keepCloseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer position = (Integer) v.getTag(0);
-                List<ShopKeptEntity> items = (List<ShopKeptEntity>) v.getTag(1);
-                items.remove(position);
+                keepHandler.unkeep(item.id);
+                list.remove(position);
+                notifyDataSetChanged();
             }
         });
 
         return cell;
     }
+
 }
