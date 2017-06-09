@@ -1,7 +1,5 @@
 package jp.co.recruit.beautydemo.activity;
 
-import android.app.Activity;
-import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;

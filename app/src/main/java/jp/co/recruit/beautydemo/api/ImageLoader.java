@@ -26,7 +26,8 @@ public class ImageLoader extends Thread {
         this.imgUrl = imgUrl;
     }
 
-    @Override    public void run() {
+    @Override
+    public void run() {
         try {
             URL url = new URL(imgUrl);
             final HttpURLConnection con = (HttpURLConnection)url.openConnection();

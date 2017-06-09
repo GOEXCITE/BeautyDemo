@@ -37,8 +37,7 @@
                 android:layout_height="200dp"
                 android:adjustViewBounds="true"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/aaa" />
+                android:layout_marginTop="5dp" />
 
         </FrameLayout>
 

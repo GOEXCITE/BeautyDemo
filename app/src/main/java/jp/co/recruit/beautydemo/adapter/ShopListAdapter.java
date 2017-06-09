@@ -19,10 +19,6 @@ import java.net.URL;
 import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.R;
-import jp.co.recruit.beautydemo.api.ImageLoader;
-import jp.co.recruit.beautydemo.api.ShopDetailFetcher;
-import jp.co.recruit.beautydemo.api.ShopListFetcher;
-import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 import jp.co.recruit.beautydemo.model.ShopListEntity;
 
 /**
