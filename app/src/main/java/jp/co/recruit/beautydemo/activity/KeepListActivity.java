@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
+import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 
 /**
@@ -26,6 +27,8 @@ public class KeepListActivity extends Activity {
     @BindView(R.id.keepListView)
     ListView listView;
 
+    private List<ShopKeptEntity> list;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,22 +37,32 @@ public class KeepListActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        ShopKeepHandler handler = new ShopKeepHandler(this);
-        List<ShopKeptEntity> keptShops = handler.keptShops();
-        KeepListAdapter listAdapter = new KeepListAdapter(this, R.layout.cell_keep_list, keptShops == null ? new ArrayList<ShopKeptEntity>() : keptShops);
-        listView.setAdapter(listAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
+                String id = list.get(i).id;
+                intent.putExtra(ShopDetailActivity.EXTRA_DETAIL_SHOP_ID,id);
                 startActivity(intent);
             }
         });
+
+        ShopKeepHandler handler = new ShopKeepHandler(this);
+        setList(handler.keptShops());
+        KeepListAdapter listAdapter = new KeepListAdapter(this, R.layout.cell_keep_list, list);
+        listView.setAdapter(listAdapter);
     }
 
     @OnClick(R.id.keepBackButton)
     void back() {
         finish();
+    }
+
+    private void setList(List<ShopKeptEntity> rawValues) {
+        if (rawValues == null) {
+            list = new ArrayList<ShopKeptEntity>();
+        } else {
+            list = rawValues;
+        }
     }
 }

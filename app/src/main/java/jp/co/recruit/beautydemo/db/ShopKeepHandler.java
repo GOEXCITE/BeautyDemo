@@ -103,7 +103,6 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
             String[] cols = {ShopKeepHandler.KEEP_TABLE_KEY_ID};
             String[] params = {id};
             cs = db.query(ShopKeepHandler.KEEP_TABLE, cols, query, params, null, null,null, null);
-            int cout = cs.getCount();
             if (cs.moveToFirst()) {
                 return true;
             }
@@ -132,7 +131,8 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
             }
 
             List<ShopKeptEntity> results = new ArrayList<>();
-            for (int i = 0; i < cs.getCount() - 1; i++ ) {
+            int count = cs.getCount();
+            for (int i = 0; i < count; i++ ) {
                 cs.moveToPosition(i);
                 ShopKeptEntity addKeptShop = new ShopKeptEntity();
                 addKeptShop.id = cs.getString(0);

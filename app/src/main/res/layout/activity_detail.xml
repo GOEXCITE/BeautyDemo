@@ -83,7 +83,7 @@
                 android:layout_height="150dp"
                 android:gravity="top"
                 android:padding="8dp"
-                android:text="女性の魅力を引きだすために最大限の技術と気持ちで応える【銀座】NO1サロン。何気ないちょっとした変化をカラーやパーマで女性らしい丸みシルエットで可愛く提案してくれる。１つ１つの薬剤も髪質やダメージに合わせ、ベースのツヤやハリから改善してくれるのも【銀座】ekubo..ならではのおもてなし♪ご予約03-6280-6978"
+                android:text=""
                 android:textSize="14sp" />
 
             <LinearLayout
