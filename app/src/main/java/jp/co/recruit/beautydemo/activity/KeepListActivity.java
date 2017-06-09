@@ -36,6 +36,11 @@ public class KeepListActivity extends Activity {
 
         ButterKnife.bind(this);
 
+        ShopKeepHandler handler = new ShopKeepHandler(this);
+        setList(handler.keptShops());
+        KeepListAdapter listAdapter = new KeepListAdapter(this, list);
+        listView.setAdapter(listAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -45,11 +50,6 @@ public class KeepListActivity extends Activity {
                 startActivity(intent);
             }
         });
-
-        ShopKeepHandler handler = new ShopKeepHandler(this);
-        setList(handler.keptShops());
-        KeepListAdapter listAdapter = new KeepListAdapter(this, list);
-        listView.setAdapter(listAdapter);
     }
 
     @OnClick(R.id.keepBackButton)
