@@ -1,6 +1,7 @@
 package jp.co.recruit.beautydemo.activity;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
+import jp.co.recruit.beautydemo.api.ImageLoader;
 import jp.co.recruit.beautydemo.api.ShopDetailFetcher;
 import jp.co.recruit.beautydemo.api.ShopListFetcher;
 import jp.co.recruit.beautydemo.model.ShopDetailEntity;
@@ -63,10 +65,21 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
             detailShopIntroductionTextView.setText(detail.introduction);
             detailAddressTextView.setText(detail.address);
             detailAccessTextView.setText(detail.access);
+            if (detail.imgUrl != null) {
+                ImageLoader loader = new ImageLoader(new Handler(this), detail.imgUrl);
+                loader.start();
+            }
+
             return true;
         } else if (msg.what == ShopListFetcher.WHAT_ID_FILED) {
 
+        } else if (msg.what == ImageLoader.WHAT_ID_IMAGE_LOADED_SUCCESS) {
+            Bitmap img = (Bitmap) msg.obj;
+            detailImageView.setImageBitmap(img);
+        } else if (msg.what == ImageLoader.WHAT_ID_IMAGE_LOADED_FILED) {
+
         }
+
         return false;
     }
 
