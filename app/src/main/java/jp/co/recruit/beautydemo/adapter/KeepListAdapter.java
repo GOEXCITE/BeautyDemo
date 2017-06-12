@@ -1,8 +1,6 @@
 package jp.co.recruit.beautydemo.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
