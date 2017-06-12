@@ -2,8 +2,11 @@ package jp.co.recruit.beautydemo.api;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.nfc.Tag;
 import android.os.Handler;
 import android.os.Message;
+import android.support.compat.BuildConfig;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.InputStream;
@@ -15,6 +18,8 @@ import java.net.URL;
  */
 
 public class ImageFetcher extends BaseFetcher {
+
+    protected static String TAG = "";
 
     private ImageView imageView;
     private String imgUrl;
@@ -45,7 +50,9 @@ public class ImageFetcher extends BaseFetcher {
                 // TODO: set imageView "NoImage"
             }
         } catch(Exception ex) {
-            ex.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, ex.getMessage(), ex);
+            }
         }
     }
 }

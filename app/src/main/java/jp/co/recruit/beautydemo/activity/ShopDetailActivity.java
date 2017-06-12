@@ -102,10 +102,12 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     void keepButtonPressed() {
         if (shop.kept && keepHandler.unkeep(shop.id)) {
             setShopKept(false);
-            Toast.makeText(this, "unkept shop", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Unkept shop", Toast.LENGTH_SHORT).show();
         } else if (!shop.kept && keepHandler.keep(shop)){
             setShopKept(true);
-            Toast.makeText(this, "kept shop", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Kept shop", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Keep/Unkeep failed!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -117,11 +119,7 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     }
 
     private void setShopKept(boolean kept) {
-        if (kept) {
-            keepButton.setImageResource(R.drawable.ic_heart_filled);
-        } else {
-            keepButton.setImageResource(R.drawable.ic_heart);
-        }
+        keepButton.setImageResource(kept ? R.drawable.ic_heart_filled : R.drawable.ic_heart);
         shop.kept = kept;
     }
 }

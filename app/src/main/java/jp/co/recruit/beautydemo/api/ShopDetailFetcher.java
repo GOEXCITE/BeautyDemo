@@ -2,6 +2,8 @@ package jp.co.recruit.beautydemo.api;
 
 import android.os.Handler;
 import android.os.Message;
+import android.support.compat.BuildConfig;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -81,7 +83,9 @@ public class ShopDetailFetcher extends BaseFetcher {
             }
 
         } catch(Exception ex) {
-            ex.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, ex.getMessage(), ex);
+            }
         }
     }
 }

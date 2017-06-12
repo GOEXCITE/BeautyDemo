@@ -46,6 +46,12 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        View cell = setupCell(position, convertView);
+        return cell;
+    }
+
+    @NonNull
+    private View setupCell(final int position, View convertView) {
         View cell = convertView ;
         if(cell == null){
             LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -69,7 +75,7 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
                 notifyDataSetChanged();
             }
         });
-
         return cell;
     }
+
 }

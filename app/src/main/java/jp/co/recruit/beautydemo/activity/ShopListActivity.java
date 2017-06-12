@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
             listView.setAdapter(listAdapter);
             return true;
         } else if (msg.what == ShopListFetcher.WHAT_ID_FAILED) {
-
+            Toast.makeText(this, "Shop list fetcher failed!", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
