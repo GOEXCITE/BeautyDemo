@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.R;
+import jp.co.recruit.beautydemo.api.ImageFetcher;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
 import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 
@@ -56,35 +57,8 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
         shopTitleTextView.setText(item.name);
 
         final ImageView listImageView = (ImageView) cell.findViewById(R.id.keepImageView);
-        Thread loadImageThread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL(item.imgUrl);
-                    final HttpURLConnection con = (HttpURLConnection)url.openConnection();
-                    con.setRequestMethod("GET");
-                    con.connect();
-
-                    if (con.getResponseCode() == 200 && con.getResponseMessage().equals("OK")) {
-                        InputStream inputStream = con.getInputStream();
-                        BitmapFactory.Options bmOptions;
-                        bmOptions = new BitmapFactory.Options();
-                        bmOptions.inSampleSize = 1;
-                        final Bitmap result = BitmapFactory.decodeStream(inputStream, null, bmOptions);
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                listImageView.setImageBitmap(result);
-                            }
-                        });
-                    }
-                } catch(Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        };
-        loadImageThread.start();
+        ImageFetcher imgFetcher = new ImageFetcher(listImageView, item.imgUrl);
+        imgFetcher.start();
 
         final Button keepCloseButton = (Button) cell.findViewById(R.id.keepCloseButton);
         keepCloseButton.setOnClickListener(new View.OnClickListener() {
