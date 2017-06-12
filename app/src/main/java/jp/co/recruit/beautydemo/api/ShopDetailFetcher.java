@@ -18,8 +18,6 @@ import jp.co.recruit.beautydemo.model.ShopDetailEntity;
  */
 
 public class ShopDetailFetcher extends BaseFetcher {
-    public static final int WHAT_ID_SUCCESS = 1;
-    public static final int WHAT_ID_FAILED = 2;
 
     private Handler handler;
     private String urlStr = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1?key=61db16c80f41a733&format=json&id=";

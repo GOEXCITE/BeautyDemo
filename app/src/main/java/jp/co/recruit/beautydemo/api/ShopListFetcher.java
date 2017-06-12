@@ -21,9 +21,6 @@ import jp.co.recruit.beautydemo.model.ShopListEntity;
 
 public class ShopListFetcher extends BaseFetcher {
 
-    public static final int WHAT_ID_SUCCESS = 1;
-    public static final int WHAT_ID_FAILED = 2;
-
     private Handler handler;
     private String urlStr = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1?key=61db16c80f41a733&address=%E9%8A%80%E5%BA%A7&order=3&format=json";
 
