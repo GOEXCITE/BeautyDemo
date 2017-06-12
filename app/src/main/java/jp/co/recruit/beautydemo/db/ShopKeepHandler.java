@@ -5,10 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.nfc.Tag;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.recruit.beautydemo.activity.BuildConfig;
 import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 import jp.co.recruit.beautydemo.model.ShopKeptEntity;
 
@@ -25,6 +28,7 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
 
     static final private String DB_NAME = "shop.sqlite";
     static final private int DB_VERSION = 1;
+    static final private String TAG = "ShopKeepHandler";
 
     public ShopKeepHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -58,7 +62,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
             db.insert(ShopKeepHandler.KEEP_TABLE, null, cv);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, e.getMessage(), e);
+            }
         } finally {
             db.close();
         }
