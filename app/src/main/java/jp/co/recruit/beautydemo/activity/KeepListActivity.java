@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
-import jp.co.recruit.beautydemo.model.ShopKeptEntity;
+import jp.co.recruit.beautydemo.model.KeepListEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
@@ -28,7 +28,7 @@ public class KeepListActivity extends Activity {
     @BindView(R.id.keepListView)
     ListView listView;
 
-    private List<ShopKeptEntity> list;
+    private List<KeepListEntity> list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,9 +66,9 @@ public class KeepListActivity extends Activity {
 
     void reloadKeptList() {
         ShopKeepHandler handler = new ShopKeepHandler(this);
-        List<ShopKeptEntity> rawValues = handler.keptShops();
+        List<KeepListEntity> rawValues = handler.keptShops();
         if (rawValues == null) {
-            list = new ArrayList<ShopKeptEntity>();
+            list = new ArrayList<KeepListEntity>();
         } else {
             list = rawValues;
         }

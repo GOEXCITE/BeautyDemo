@@ -16,22 +16,22 @@ import java.util.List;
 import jp.co.recruit.beautydemo.activity.R;
 import jp.co.recruit.beautydemo.api.ImageFetcher;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
-import jp.co.recruit.beautydemo.model.ShopKeptEntity;
+import jp.co.recruit.beautydemo.model.KeepListEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
  */
 
-public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
+public class KeepListAdapter extends ArrayAdapter<KeepListEntity> {
 
-    private List<ShopKeptEntity> list;
+    private List<KeepListEntity> list;
     private Context context;
     static private int ID = R.layout.cell_keep_list;
 
     private Handler handler = new Handler();
     private ShopKeepHandler keepHandler;
 
-    public KeepListAdapter(@NonNull Context context, @NonNull List<ShopKeptEntity> objects) {
+    public KeepListAdapter(@NonNull Context context, @NonNull List<KeepListEntity> objects) {
         super(context, ID, objects);
         this.list = objects;
         this.context = context;
@@ -53,7 +53,7 @@ public class KeepListAdapter extends ArrayAdapter<ShopKeptEntity> {
             cell = vi.inflate(ID, null);
         }
 
-        final ShopKeptEntity item = list.get(position);
+        final KeepListEntity item = list.get(position);
         TextView shopTitleTextView = (TextView) cell.findViewById(R.id.keepShopTitleTextView);
         shopTitleTextView.setText(item.name);
 

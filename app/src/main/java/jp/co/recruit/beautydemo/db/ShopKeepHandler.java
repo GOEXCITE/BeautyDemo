@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.Tag;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.BuildConfig;
 import jp.co.recruit.beautydemo.model.ShopDetailEntity;
-import jp.co.recruit.beautydemo.model.ShopKeptEntity;
+import jp.co.recruit.beautydemo.model.KeepListEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
@@ -109,7 +108,7 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
         return false;
     }
 
-    public List<ShopKeptEntity> keptShops() {
+    public List<KeepListEntity> keptShops() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cs = null;
         try {
@@ -125,11 +124,11 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
                 return null;
             }
 
-            List<ShopKeptEntity> results = new ArrayList<>();
+            List<KeepListEntity> results = new ArrayList<>();
             int count = cs.getCount();
             for (int i = 0; i < count; i++ ) {
                 cs.moveToPosition(i);
-                ShopKeptEntity addKeptShop = new ShopKeptEntity();
+                KeepListEntity addKeptShop = new KeepListEntity();
                 addKeptShop.id = cs.getString(0);
                 addKeptShop.name = cs.getString(1);
                 addKeptShop.imgUrl = cs.getString(2);
