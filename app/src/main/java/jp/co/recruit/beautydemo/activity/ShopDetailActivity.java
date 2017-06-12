@@ -1,36 +1,23 @@
 package jp.co.recruit.beautydemo.activity;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
-import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
 import jp.co.recruit.beautydemo.api.ImageFetcher;
 import jp.co.recruit.beautydemo.api.ShopDetailFetcher;
-import jp.co.recruit.beautydemo.api.ShopListFetcher;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
 import jp.co.recruit.beautydemo.model.ShopDetailEntity;
-import jp.co.recruit.beautydemo.model.ShopListEntity;
 
 /**
  * Created by 01011776 on 2017/06/07.
