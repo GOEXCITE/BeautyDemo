@@ -121,7 +121,7 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
 
             cs = db.rawQuery(query, null);
             if (cs.getCount() == 0) {
-                return null;
+                return new ArrayList<KeepListEntity>();
             }
 
             List<KeepListEntity> results = new ArrayList<>();
