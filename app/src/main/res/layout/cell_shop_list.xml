@@ -13,8 +13,8 @@
             android:id="@+id/shopTitleTextView"
             android:text="AXY 銀座店"
             android:textStyle="bold"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:paddingLeft="20dp"
             android:textSize="20sp"
             android:gravity="center_vertical"/>
@@ -47,7 +47,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:layout_margin="5dp"
                 android:gravity="center_vertical"
@@ -57,7 +57,7 @@
 
             <TextView
                 android:id="@+id/addressTextView"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
@@ -78,7 +78,7 @@
 
             <TextView
                 android:id="@+id/accessTextView"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
