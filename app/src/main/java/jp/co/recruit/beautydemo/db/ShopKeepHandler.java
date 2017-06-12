@@ -79,7 +79,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
             db.delete(ShopKeepHandler.KEEP_TABLE, query, params);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, e.getMessage(), e);
+            }
         } finally {
             db.close();
         }
@@ -98,7 +100,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
                 return true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, e.getMessage(), e);
+            }
         } finally {
             db.close();
         }
@@ -133,7 +137,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
             }
             return results;
         } catch (Exception e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, e.getMessage(), e);
+            }
         } finally {
             db.close();
         }

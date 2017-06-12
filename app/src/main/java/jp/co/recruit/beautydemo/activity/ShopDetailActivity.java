@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jp.co.recruit.beautydemo.adapter.KeepListAdapter;
 import jp.co.recruit.beautydemo.adapter.ShopListAdapter;
-import jp.co.recruit.beautydemo.api.ImageLoader;
+import jp.co.recruit.beautydemo.api.ImageFetcher;
 import jp.co.recruit.beautydemo.api.ShopDetailFetcher;
 import jp.co.recruit.beautydemo.api.ShopListFetcher;
 import jp.co.recruit.beautydemo.db.ShopKeepHandler;
@@ -77,28 +77,23 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
 
     @Override
     public boolean handleMessage(Message msg) {
-        if (msg.what == ShopDetailFetcher.WHAT_ID_SUCCESS) {
-            shop = (ShopDetailEntity) msg.obj;
-            detailShopNameTextView.setText(shop.name);
-            detailShopIntroductionTextView.setText(shop.introduction);
-            detailAddressTextView.setText(shop.address);
-            detailAccessTextView.setText(shop.access);
-            setShopKept(keepHandler.isKept(shop.id));
-            keepButton.setVisibility(View.VISIBLE);
+        switch (msg.what) {
+            case ShopDetailFetcher.WHAT_ID_SUCCESS:
+                shop = (ShopDetailEntity) msg.obj;
+                detailShopNameTextView.setText(shop.name);
+                detailShopIntroductionTextView.setText(shop.introduction);
+                detailAddressTextView.setText(shop.address);
+                detailAccessTextView.setText(shop.access);
+                setShopKept(keepHandler.isKept(shop.id));
+                keepButton.setVisibility(View.VISIBLE);
 
-            if (shop.imgUrl != null) {
-                ImageLoader loader = new ImageLoader(new Handler(this), shop.imgUrl);
-                loader.start();
-            }
-
-            return true;
-        } else if (msg.what == ShopListFetcher.WHAT_ID_FILED) {
-
-        } else if (msg.what == ImageLoader.WHAT_ID_IMAGE_LOADED_SUCCESS) {
-            Bitmap img = (Bitmap) msg.obj;
-            detailImageView.setImageBitmap(img);
-        } else if (msg.what == ImageLoader.WHAT_ID_IMAGE_LOADED_FILED) {
-
+                if (shop.imgUrl != null) {
+                    ImageFetcher imgFetcher = new ImageFetcher(detailImageView, shop.imgUrl);
+                    imgFetcher.start();
+                }
+                return true;
+            case ShopDetailFetcher.WHAT_ID_FAILED:
+                break;
         }
         return false;
     }

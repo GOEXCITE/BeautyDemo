@@ -19,10 +19,10 @@ import jp.co.recruit.beautydemo.model.ShopListEntity;
  * Created by 01011776 on 2017/06/07.
  */
 
-public class ShopListFetcher extends Thread {
+public class ShopListFetcher extends BaseFetcher {
 
     public static final int WHAT_ID_SUCCESS = 1;
-    public static final int WHAT_ID_FILED = 2;
+    public static final int WHAT_ID_FAILED = 2;
 
     private Handler handler;
     private String urlStr = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1?key=61db16c80f41a733&address=%E9%8A%80%E5%BA%A7&order=3&format=json";
@@ -39,7 +39,7 @@ public class ShopListFetcher extends Thread {
             final HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
 
-            if (con.getResponseCode() == 200 && con.getResponseMessage().equals("OK")) {
+            if (con.getResponseCode() == FETCHSUCCESSED && con.getResponseMessage().equals("OK")) {
 
                 List<ShopListEntity> resultList = new LinkedList<>();
 
@@ -76,7 +76,7 @@ public class ShopListFetcher extends Thread {
                 Message msg = Message.obtain(handler,WHAT_ID_SUCCESS, resultList);
                 handler.sendMessage(msg);
             } else {
-                Message msg = Message.obtain(handler,WHAT_ID_FILED, null);
+                Message msg = Message.obtain(handler,WHAT_ID_FAILED, null);
                 handler.sendMessage(msg);
             }
 

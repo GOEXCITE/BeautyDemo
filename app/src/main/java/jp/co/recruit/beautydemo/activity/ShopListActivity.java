@@ -57,7 +57,7 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
             ShopListAdapter listAdapter = new ShopListAdapter(this, list);
             listView.setAdapter(listAdapter);
             return true;
-        } else if (msg.what == ShopListFetcher.WHAT_ID_FILED) {
+        } else if (msg.what == ShopListFetcher.WHAT_ID_FAILED) {
 
         }
         return false;

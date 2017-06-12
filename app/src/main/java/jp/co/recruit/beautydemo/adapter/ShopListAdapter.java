@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.R;
+import jp.co.recruit.beautydemo.api.ImageFetcher;
 import jp.co.recruit.beautydemo.model.ShopListEntity;
 
 /**
@@ -56,35 +57,8 @@ public class ShopListAdapter extends ArrayAdapter<ShopListEntity> {
         accessTextView.setText(item.access);
 
         final ImageView listImageView = (ImageView) cell.findViewById(R.id.imageView);
-        Thread loadImageThread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL(item.imgUrl);
-                    final HttpURLConnection con = (HttpURLConnection)url.openConnection();
-                    con.setRequestMethod("GET");
-                    con.connect();
-
-                    if (con.getResponseCode() == 200 && con.getResponseMessage().equals("OK")) {
-                        InputStream inputStream = con.getInputStream();
-                        BitmapFactory.Options bmOptions;
-                        bmOptions = new BitmapFactory.Options();
-                        bmOptions.inSampleSize = 1;
-                        final Bitmap result = BitmapFactory.decodeStream(inputStream, null, bmOptions);
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                listImageView.setImageBitmap(result);
-                            }
-                        });
-                    }
-                } catch(Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        };
-        loadImageThread.start();
+        ImageFetcher imgFetcher = new ImageFetcher(listImageView, item.imgUrl);
+        imgFetcher.start();
 
         return cell;
     }
