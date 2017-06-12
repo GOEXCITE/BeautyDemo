@@ -66,7 +66,7 @@ public class KeepListActivity extends Activity {
 
     void reloadKeptList() {
         ShopKeepHandler handler = new ShopKeepHandler(this);
-        List<KeepListEntity> rawValues = handler.keptShops();
+        list = handler.keptShops();
         KeepListAdapter listAdapter = new KeepListAdapter(this, list);
         listView.setAdapter(listAdapter);
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -108,9 +109,11 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    @NonNull
     public List<KeepListEntity> keptShops() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cs = null;
+        List<KeepListEntity> results = new ArrayList<>();
         try {
             // select id, name, imgUrl from shop
             String query = "select "
@@ -121,10 +124,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
 
             cs = db.rawQuery(query, null);
             if (cs.getCount() == 0) {
-                return new ArrayList<KeepListEntity>();
+                return results;
             }
 
-            List<KeepListEntity> results = new ArrayList<>();
             int count = cs.getCount();
             for (int i = 0; i < count; i++ ) {
                 cs.moveToPosition(i);
@@ -142,6 +144,6 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
         } finally {
             db.close();
         }
-        return null;
+        return results;
     }
 }
