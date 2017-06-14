@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.R;
+import jp.co.recruit.beautydemo.api.ImageAsyncTask;
 import jp.co.recruit.beautydemo.api.ImageFetcher;
 import jp.co.recruit.beautydemo.model.ShopListEntity;
 
@@ -52,8 +53,10 @@ public class ShopListAdapter extends ArrayAdapter<ShopListEntity> {
         accessTextView.setText(item.access);
 
         final ImageView listImageView = (ImageView) cell.findViewById(R.id.imageView);
-        ImageFetcher imgFetcher = new ImageFetcher(listImageView, item.imgUrl);
-        imgFetcher.start();
+//        ImageFetcher imgFetcher = new ImageFetcher(listImageView, item.imgUrl);
+//        imgFetcher.start();
+        ImageAsyncTask imgTask = new ImageAsyncTask(listImageView);
+        imgTask.execute(item.imgUrl);
 
         return cell;
     }

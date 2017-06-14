@@ -15,7 +15,7 @@ import java.util.List;
 
 import jp.co.recruit.beautydemo.activity.R;
 import jp.co.recruit.beautydemo.api.ImageFetcher;
-import jp.co.recruit.beautydemo.db.ShopKeepHandler;
+import jp.co.recruit.beautydemo.db.ShopKeepHelper;
 import jp.co.recruit.beautydemo.model.KeepListEntity;
 
 /**
@@ -29,14 +29,14 @@ public class KeepListAdapter extends ArrayAdapter<KeepListEntity> {
     static private int ID = R.layout.cell_keep_list;
 
     private Handler handler = new Handler();
-    private ShopKeepHandler keepHandler;
+    private ShopKeepHelper keepHandler;
 
     public KeepListAdapter(@NonNull Context context, @NonNull List<KeepListEntity> objects) {
         super(context, ID, objects);
         this.list = objects;
         this.context = context;
 
-        keepHandler = new ShopKeepHandler(context);
+        keepHandler = new ShopKeepHelper(context);
     }
 
     @Override

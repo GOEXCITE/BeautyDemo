@@ -40,9 +40,10 @@ public class ShopListActivity extends AppCompatActivity implements Handler.Callb
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
-                String id = list.get(i).id;
-                intent.putExtra(ShopDetailActivity.EXTRA_DETAIL_SHOP_ID,id);
+//                Intent intent = new Intent(getApplication(), ShopDetailActivity.class);
+//                String id = list.get(i).id;
+//                intent.putExtra(ShopDetailActivity.EXTRA_DETAIL_SHOP_ID,id);
+                Intent intent = ShopDetailActivity.newIntent(ShopListActivity.this, list.get(i).id);
                 startActivity(intent);
             }
         });

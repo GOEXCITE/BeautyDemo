@@ -19,7 +19,7 @@ import jp.co.recruit.beautydemo.model.KeepListEntity;
  * Created by 01011776 on 2017/06/07.
  */
 
-public class ShopKeepHandler extends SQLiteOpenHelper {
+public class ShopKeepHelper extends SQLiteOpenHelper {
 
     public static final String KEEP_TABLE = "SHOP";
     public static final String KEEP_TABLE_KEY_ID = "id";
@@ -28,9 +28,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
 
     static final private String DB_NAME = "shop.sqlite";
     static final private int DB_VERSION = 1;
-    static final private String TAG = "ShopKeepHandler";
+    static final private String TAG = "ShopKeepHelper";
 
-    public ShopKeepHandler(Context context) {
+    public ShopKeepHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
@@ -56,10 +56,10 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         try {
             ContentValues cv = new ContentValues();
-            cv.put(ShopKeepHandler.KEEP_TABLE_KEY_ID, shop.id);
-            cv.put(ShopKeepHandler.KEEP_TABLE_KEY_NAME, shop.name);
-            cv.put(ShopKeepHandler.KEEP_TABLE_KEY_IMGURL, shop.imgUrl);
-            db.insert(ShopKeepHandler.KEEP_TABLE, null, cv);
+            cv.put(ShopKeepHelper.KEEP_TABLE_KEY_ID, shop.id);
+            cv.put(ShopKeepHelper.KEEP_TABLE_KEY_NAME, shop.name);
+            cv.put(ShopKeepHelper.KEEP_TABLE_KEY_IMGURL, shop.imgUrl);
+            db.insert(ShopKeepHelper.KEEP_TABLE, null, cv);
             return true;
         } catch (Exception e) {
             if (BuildConfig.DEBUG) {
@@ -74,9 +74,9 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
     public boolean unkeep(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         try {
-            String query = ShopKeepHandler.KEEP_TABLE_KEY_ID + " = ?";
+            String query = ShopKeepHelper.KEEP_TABLE_KEY_ID + " = ?";
             String[] params = {id};
-            db.delete(ShopKeepHandler.KEEP_TABLE, query, params);
+            db.delete(ShopKeepHelper.KEEP_TABLE, query, params);
             return true;
         } catch (Exception e) {
             if (BuildConfig.DEBUG) {
@@ -92,10 +92,10 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cs = null;
         try {
-            String query = ShopKeepHandler.KEEP_TABLE_KEY_ID + " = ?";
-            String[] cols = {ShopKeepHandler.KEEP_TABLE_KEY_ID};
+            String query = ShopKeepHelper.KEEP_TABLE_KEY_ID + " = ?";
+            String[] cols = {ShopKeepHelper.KEEP_TABLE_KEY_ID};
             String[] params = {id};
-            cs = db.query(ShopKeepHandler.KEEP_TABLE, cols, query, params, null, null,null, null);
+            cs = db.query(ShopKeepHelper.KEEP_TABLE, cols, query, params, null, null,null, null);
             if (cs.moveToFirst()) {
                 return true;
             }
@@ -117,10 +117,10 @@ public class ShopKeepHandler extends SQLiteOpenHelper {
         try {
             // select id, name, imgUrl from shop
             String query = "select "
-                    + ShopKeepHandler.KEEP_TABLE_KEY_ID + ", "
-                    + ShopKeepHandler.KEEP_TABLE_KEY_NAME + ", "
-                    + ShopKeepHandler.KEEP_TABLE_KEY_IMGURL + " from "
-                    + ShopKeepHandler.KEEP_TABLE;
+                    + ShopKeepHelper.KEEP_TABLE_KEY_ID + ", "
+                    + ShopKeepHelper.KEEP_TABLE_KEY_NAME + ", "
+                    + ShopKeepHelper.KEEP_TABLE_KEY_IMGURL + " from "
+                    + ShopKeepHelper.KEEP_TABLE;
 
             cs = db.rawQuery(query, null);
             if (cs.getCount() == 0) {
