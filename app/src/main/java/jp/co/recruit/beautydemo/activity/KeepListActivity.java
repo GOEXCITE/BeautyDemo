@@ -42,10 +42,10 @@ public class KeepListActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(KeepListActivity.this, ShopDetailActivity.class);
-//                String id = list.get(i).id;
-//                intent.putExtra(ShopDetailActivity.EXTRA_DETAIL_SHOP_ID,id);
-                Intent intent = ShopDetailActivity.newIntent(KeepListActivity.this, list.get(i).id);
+                Intent intent = new Intent(KeepListActivity.this, ShopDetailActivity.class);
+                String id = list.get(i).id;
+                intent.putExtra(ShopDetailActivity.EXTRA_DETAIL_SHOP_ID,id);
+//                Intent intent = ShopDetailActivity.newIntent(KeepListActivity.this, list.get(i).id);
                 startActivityForResult(intent, KEEP_LIST_ACTIVITY_BACK);
             }
         });

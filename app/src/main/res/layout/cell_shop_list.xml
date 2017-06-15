@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
@@ -11,7 +12,7 @@
 
         <TextView
             android:id="@+id/shopTitleTextView"
-            android:text="AXY 銀座店"
+            tools:text="AXY 銀座店"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -63,7 +64,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:gravity="top"
-                android:text="東京都立川市曙町２－１８－１７　町田ビル５F"
+                tools:text="東京都立川市曙町２－１８－１７　町田ビル５F"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -84,7 +85,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:gravity="top"
-                android:text="立川駅北口を出て直進しお隣にはドン・キホーテがあります。ビックカメラを超え、立川通りを渡り、さらに少し進むと左手に町田ビルがあ"
+                tools:text="立川駅北口を出て直進しお隣にはドン・キホーテがあります。ビックカメラを超え、立川通りを渡り、さらに少し進むと左手に町田ビルがあ"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 

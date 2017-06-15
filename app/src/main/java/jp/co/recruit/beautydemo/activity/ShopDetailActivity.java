@@ -27,7 +27,7 @@ import jp.co.recruit.beautydemo.model.ShopDetailEntity;
 
 public class ShopDetailActivity extends Activity implements Handler.Callback {
 
-    private final static String EXTRA_DETAIL_SHOP_ID = "EXTRA_DETAIL_SHOP_ID";
+    final static String EXTRA_DETAIL_SHOP_ID = "EXTRA_DETAIL_SHOP_ID";
 
     @BindView(R.id.detailImageView)
     ImageView detailImageView;
@@ -65,7 +65,6 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
         keepHandler = new ShopKeepHelper(this);
 
         String shopId = getIntent().getStringExtra(EXTRA_DETAIL_SHOP_ID);
-        keepButton.setVisibility(View.INVISIBLE);
         ShopDetailFetcher fetcher = new ShopDetailFetcher(new Handler(this), shopId);
         fetcher.start();
     }
@@ -113,6 +112,7 @@ public class ShopDetailActivity extends Activity implements Handler.Callback {
     }
 
     private void setShopKept(boolean kept) {
+        keepButton.setVisibility(View.VISIBLE);
         keepButton.setImageResource(kept ? R.drawable.ic_heart_filled : R.drawable.ic_heart);
         shop.kept = kept;
     }

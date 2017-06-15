@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,7 +14,7 @@
 
     <TextView
         android:id="@+id/keepShopTitleTextView"
-        android:text="AXY 銀座店"
+        tools:text="AXY 銀座店"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:textSize="20sp"
