@@ -20,6 +20,9 @@
         <activity android:name=".ShopListActivity" />
         <activity android:name=".KeepListActivity" />
         <activity android:name=".ShopDetailActivity" />
+        <activity
+            android:name=".DialogActivity"
+            android:theme="@android:style/Theme.Holo.Dialog"/>
 
     </application>
 

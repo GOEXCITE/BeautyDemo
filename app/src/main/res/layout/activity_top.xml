@@ -21,8 +21,19 @@
     <TextView
         android:id="@+id/showNameTextView"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/purple"
-        android:layout_height="wrap_content" />
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="OK"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/showDialogButton"
@@ -34,21 +45,21 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/showWebViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="WebView Demo"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/button"
+        android:id="@+id/showDragDropViewButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="DragAndDropView Demo"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/databaseDemoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Data Base Demo"
         android:textSize="20sp" />
 
 </LinearLayout>
