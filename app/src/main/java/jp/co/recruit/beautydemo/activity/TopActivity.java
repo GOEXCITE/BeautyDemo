@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
@@ -42,6 +43,9 @@ public class TopActivity extends Activity {
     @BindView(R.id.showDialogButton)
     Button showDialogButton;
 
+    @BindView(R.id.preferenceDemoButton)
+    Button preferenceDemoButton;
+
     @BindView(R.id.showDragDropViewButton)
     Button showDragDropViewButton;
 
@@ -68,6 +72,22 @@ public class TopActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(TopActivity.this, DialogActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        preferenceDemoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TopActivity.this, SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        showDragDropViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(TopActivity.this, .class);
+//                startActivity(intent);
             }
         });
 

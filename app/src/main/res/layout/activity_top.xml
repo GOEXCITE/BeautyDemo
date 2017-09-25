@@ -45,6 +45,15 @@
         android:textSize="20sp" />
 
     <Button
+        android:id="@+id/preferenceDemoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Preference Demo"
+        android:textSize="20sp" />
+
+    <Button
         android:id="@+id/showDragDropViewButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
