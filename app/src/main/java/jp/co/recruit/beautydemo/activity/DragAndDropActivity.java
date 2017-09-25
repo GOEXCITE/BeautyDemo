@@ -10,6 +10,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +26,9 @@ public class DragAndDropActivity extends Activity {
 
     @BindView(R.id.drag_drop_view)
     View dragdropView;
+
+    @BindView(R.id.touch_msg_tex_view)
+    TextView textView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +81,17 @@ public class DragAndDropActivity extends Activity {
                         break;
                 }
                 return true;
+            }
+        });
+
+        dragdropView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.Tada)
+                        .duration(700)
+                        .playOn(textView);
+
+                textView.setText("Wrong password!");
             }
         });
     }

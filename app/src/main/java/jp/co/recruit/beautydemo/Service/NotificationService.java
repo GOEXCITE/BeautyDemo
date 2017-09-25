@@ -46,6 +46,6 @@ public class NotificationService extends Service {
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        mNotificationManager.notify(10, mBuilder.build());
+        mNotificationManager.notify(1, mBuilder.build());
     }
 }

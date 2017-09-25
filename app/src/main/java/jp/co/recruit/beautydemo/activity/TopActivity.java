@@ -1,27 +1,27 @@
 package jp.co.recruit.beautydemo.activity;
 
 import android.app.Activity;
-import android.content.DialogInterface;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import jp.co.recruit.beautydemo.Service.NotificationService;
+import jp.co.recruit.beautydemo.db.DemoSquidDB;
+import jp.co.recruit.beautydemo.model.PersonSpec;
 
 /**
  * Created by HollyTian on 2017/09/23.
@@ -103,8 +103,7 @@ public class TopActivity extends Activity {
         notificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NotificationService newService = new NotificationService();
-                newService.createNotification();
+                createNotification();
             }
         });
     }
@@ -130,5 +129,38 @@ public class TopActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void createNotification() {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher_round)
+                        .setContentTitle("My notification")
+                        .setContentText("Hello World!");
+
+        Intent resultIntent = new Intent(this, NotifiedActivity.class);
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(NotifiedActivity.class);
+
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+
+        NotificationManager nm =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.notify(1, mBuilder.build());
+    }
+
+    private void sampleDBCode() {
+        DemoSquidDB db = new DemoSquidDB(); // Important: db instances should always be singletons
+
+        PersonSpec newPerson = new PersonSpec()
+                .setFirstName("Sam");
+        db.persist(newPerson);
     }
 }

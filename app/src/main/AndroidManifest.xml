@@ -36,6 +36,8 @@
         <activity android:name=".NotifiedActivity" />
         <activity android:name=".DragAndDropActivity" />
 
+        <service android:name="jp.co.recruit.beautydemo.Service.NotificationService" />
+
     </application>
 
 </manifest>
