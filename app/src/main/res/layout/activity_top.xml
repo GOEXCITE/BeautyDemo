@@ -6,11 +6,6 @@
     android:layout_marginRight="50dp"
     android:orientation="vertical">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
@@ -69,6 +64,15 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Data Base Demo"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/notificationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Notification Demo"
         android:textSize="20sp" />
 
 </LinearLayout>

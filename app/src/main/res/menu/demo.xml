@@ -3,5 +3,7 @@
     <item
         androclass:id="@+id/showWebViewItem"
         androclass:title="WebViewDemo" />
-    <item androclass:title="none" />
+    <item
+        androclass:id="@+id/showBeautyDemoItem"
+        androclass:title="BeautyDemo" />
 </menu>

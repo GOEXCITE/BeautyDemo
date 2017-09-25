@@ -21,15 +21,13 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import jp.co.recruit.beautydemo.Service.NotificationService;
 
 /**
  * Created by HollyTian on 2017/09/23.
  */
 
 public class TopActivity extends Activity {
-
-    @BindView(R.id.searchView)
-    SearchView searchView;
 
     @BindView(R.id.nameEditText)
     EditText nameEditText;
@@ -51,6 +49,9 @@ public class TopActivity extends Activity {
 
     @BindView(R.id.databaseDemoButton)
     Button databaseDemoButton;
+
+    @BindView(R.id.notificationButton)
+    Button notificationButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -98,6 +99,14 @@ public class TopActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        notificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NotificationService newService = new NotificationService();
+                newService.createNotification();
+            }
+        });
     }
 
     @Override
@@ -115,6 +124,9 @@ public class TopActivity extends Activity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 return true;
+            case R.id.showBeautyDemoItem:
+                Intent intent1 = new Intent(TopActivity.this, ShopListActivity.class);
+                startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);
         }
