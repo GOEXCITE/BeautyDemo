@@ -10,6 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/AppTheme"
         android:supportsRtl="true">
         <activity android:name=".TopActivity">
             <intent-filter>
@@ -22,7 +23,9 @@
         <activity android:name=".ShopDetailActivity" />
         <activity
             android:name=".DialogActivity"
-            android:theme="@android:style/Theme.Holo.Dialog"/>
+            />
+            <!--android:theme="@android:style/Theme.Holo.Dialog"-->
+        <activity android:name=".DatabaseActivity" />
 
     </application>
 

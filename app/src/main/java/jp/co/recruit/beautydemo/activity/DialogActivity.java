@@ -5,9 +5,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import jp.co.recruit.beautydemo.fragment.DemoDialogFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +18,7 @@ import butterknife.ButterKnife;
  * Created by tiantian on 2017/09/24.
  */
 
-public class DialogActivity extends Activity implements View.OnClickListener{
+public class DialogActivity extends AppCompatActivity implements View.OnClickListener{
 
     @BindView(R.id.activity_dialog_show_dialog_button)
     Button showDialogButton;
@@ -34,29 +36,7 @@ public class DialogActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Are you sure, You wanted to make decision");
-
-        alertDialogBuilder.setPositiveButton("yes",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        Toast.makeText(DialogActivity.this, "You clicked yes button",Toast.LENGTH_LONG).show();
-                    }
-                });
-
-//        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                finish();
-//            }
-//        });
-
-//        alertDialogBuilder.setNegativeButton("Cancle", new DialogInterface.OnClickListener(){
-//
-//        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        DemoDialogFragment demo = new DemoDialogFragment();
+        demo.show(getFragmentManager(), "first dialog");
     }
 }
