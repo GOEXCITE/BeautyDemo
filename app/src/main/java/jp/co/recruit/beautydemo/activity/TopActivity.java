@@ -87,8 +87,8 @@ public class TopActivity extends Activity {
         showDragDropViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(TopActivity.this, .class);
-//                startActivity(intent);
+                Intent intent = new Intent(TopActivity.this, DragAndDropActivity.class);
+                startActivity(intent);
             }
         });
 
